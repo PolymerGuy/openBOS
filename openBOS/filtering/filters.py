@@ -1,6 +1,12 @@
 import scipy.ndimage as nd
 import numpy as np
 
+
+# TODO: Implement the function below
+def filter_image_stack(images_stack, filter=bos.filters.highpass_gaussian):
+    raise NotImplementedError("Implement this!")
+
+
 def filter_image(image,filter_type="gaussian",sigma=2.0):
     if not isinstance(image,np.ndarray) or image.ndim != 2:
         raise ValueError("Only BW images are supported")

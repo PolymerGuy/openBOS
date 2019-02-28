@@ -2,8 +2,8 @@ import numpy as np
 from collections import namedtuple
 
 
-DiffBOS_settings = namedtuple("diffBOS_settings",["First_img_id","N_imgs","Ref_rolling","Ref_stack_depth"])
-
+Settings = namedtuple("diffBOS_settings", ["First_img_id", "N_imgs", "Ref_rolling", "Ref_stack_depth"])
+Settings.__new__.__defaults__ = (0, None, False, 1)
 
 class diffBOS(object):
     def __init__(self,image_stack,settings):
@@ -12,7 +12,7 @@ class diffBOS(object):
 
         self._n_imgs_ = min(settings.N_imgs,len(self._image_stack_)) 
 
-        if isinstance(settings,DiffBOS_settings):
+        if isinstance(settings, Settings):
             self._settings_ = settings
 
         if self._settings_
@@ -24,7 +24,7 @@ class diffBOS(object):
         return diff_stack
 
     def __diff_images__(image,background):
-        return diff = np.abs(images[i,:,:]-background) # <- "Schlieren"
+        return np.abs(images[i,:,:]-background) # <- "Schlieren"
 
 
 
