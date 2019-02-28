@@ -1,3 +1,3 @@
 import diffBOS
 import filtering
-from visualization import visualize
+from visualization import Visualizer

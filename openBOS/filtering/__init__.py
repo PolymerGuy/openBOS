@@ -1,1 +1,1 @@
-from filters import filter_image_stack
+from filters import lowpass_gaussian,highpass_gaussian
