@@ -1,5 +1,6 @@
 import numpy as np
 from collections import namedtuple
+from openBOS.IO import ImageStack
 
 
 Settings = namedtuple("diffBOS_settings", ["First_img_id", "N_imgs", "Ref_rolling", "Ref_stack_depth"])
@@ -15,7 +16,7 @@ class diffBOS(object):
         if isinstance(settings, Settings):
             self._settings_ = settings
 
-        if self._settings_
+
 
     def run(self):
         diff_stack = []
@@ -23,8 +24,8 @@ class diffBOS(object):
             diff_stack.append(self.__diff_images__(img,self.background(i)))
         return diff_stack
 
-    def __diff_images__(image,background):
-        return np.abs(images[i,:,:]-background) # <- "Schlieren"
+    def __diff_images__(self,image,background):
+        return np.abs(image-background) # <- "Schlieren"
 
 
 

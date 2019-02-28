@@ -8,10 +8,10 @@ path_to_img_folder = r"/some/path/"
 images_stack = bos.IO.ImageStackFromFolder(path_to_img_folder, file_suffix=".tif", lazy=True)
 
 # Remove background drift by high-pass filtering the image_stack
-image_stack_hp = bos.filters.filter_image_stack(images_stack, filter=bos.filters.highpass_gaussian)
+image_stack_hp = bos.filtering.filter_image_stack(images_stack, filter=bos.filtering.highpass_gaussian)
 
 # Define the settings for the analysis
-settings = bos.diffBOS.DiffBOS_settings(First_img_id=0,
+settings = bos.diffBOS.Settings(First_img_id=0,
                                         N_imgs=100,
                                         Ref_rolling=False,
                                         Ref_stack_depth=10)
@@ -20,9 +20,9 @@ settings = bos.diffBOS.DiffBOS_settings(First_img_id=0,
 bos_job = bos.diffBOS.diffBOS(image_stack_hp, settings=settings)
 bos_res = bos_job.run()
 
-bos_res_blurred = bos.filters.filter_image_stack(bos_res, filter=bos.filters.lowpass_gaussian)
+bos_res_blurred = bos.filtering.filter_image_stack(bos_res, filter=bos.filtering.lowpass_gaussian)
 
 # Show results
-visualisation = bos.vizTools.viz(bos_res)
+visualisation = bos.visualize(bos_res)
 visualisation.show_frame(15)
 visualisation.save_frame(45)
