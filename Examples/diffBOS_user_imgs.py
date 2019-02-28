@@ -8,7 +8,7 @@ path_to_img_folder = r"./images/"
 image_stack = bos.IO.ImageStackFromFolder(path_to_img_folder, file_suffix=".tif", lazy=True)
 
 # Remove background drift by high-pass filtering the image_stack
-# image_stack.set_filter(bos.filtering.highpass_gaussian)
+image_stack.set_filter(bos.filtering.highpass_gaussian)
 
 # Define the settings for the analysis
 settings = bos.diffBOS.Settings(First_img_id=0,
