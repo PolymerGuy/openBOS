@@ -9,6 +9,7 @@ __pycache__/
 # Jetbrains
 .idea/
 Examples/images/*
+Examples/Images/*
 
 # Distribution / packaging
 .Python
