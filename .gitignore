@@ -6,6 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+# Jetbrains
+.idea/
+Examples/images/*
+
+#VSCODE
+.vscode
+.vsode/
+vscode/
+
 # Distribution / packaging
 .Python
 build/
