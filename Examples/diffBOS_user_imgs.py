@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # Initial draft on a script representing a typical workflow of an analysis
 
-path_to_img_folder = r"./images/"
+path_to_img_folder = r"./Images/"
 
 # Generate an image stack from all images in the folder
 image_stack = bos.imageStack.imagestack_from_folder(path_to_img_folder, file_suffix=".tif", lazy=True)
