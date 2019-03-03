@@ -1,15 +1,15 @@
 import openBOS as bos
-
+import matplotlib.pyplot as plt
 
 # Initial draft on a script representing a typical workflow of an analysis
 
 path_to_img_folder = r"./images/"
 
 # Generate an image stack from all images in the folder
-image_stack = bos.imageStack.imagestack_from_folder(path_to_img_folder, file_suffix=".tif", lazy=False)
+image_stack = bos.imageStack.imagestack_from_folder(path_to_img_folder, file_suffix=".tif", lazy=True)
 
 # Remove background drift by high-pass filtering the image_stack
-image_stack.set_filter(bos.filtering.highpass_gaussian,sigma=20)
+image_stack.set_filter(bos.filtering.highpass_gaussian,sigma=2)
 
 # visualisation = bos.Visualizer(image_stack)
 # visualisation.show_frame(10)
