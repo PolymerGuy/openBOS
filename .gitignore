@@ -12,6 +12,8 @@ Examples/images/*
 
 #VSCODE
 .vscode
+.vsode/
+vscode/
 
 # Distribution / packaging
 .Python
