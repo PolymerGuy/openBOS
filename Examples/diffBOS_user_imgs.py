@@ -1,5 +1,6 @@
 import openBOS as bos
 
+
 # Initial draft on a script representing a typical workflow of an analysis
 
 path_to_img_folder = r"./images/"
@@ -10,8 +11,8 @@ image_stack = bos.imageStack.imagestack_from_folder(path_to_img_folder, file_suf
 # Remove background drift by high-pass filtering the image_stack
 image_stack.set_filter(bos.filtering.highpass_gaussian,sigma=20)
 
-visualisation = bos.Visualizer(image_stack)
-visualisation.show_frame(10)
+# visualisation = bos.Visualizer(image_stack)
+# visualisation.show_frame(10)
 
 
 # Define the settings for the analysis
@@ -24,7 +25,7 @@ settings = bos.diffBOS.Settings(First_img_id=0,
 bos_job = bos.diffBOS.diffBOS(image_stack, settings=settings)
 bos_res = bos_job.run()
 
-#bos_res_blurred = bos_res.set_filter(filter=bos.filtering.lowpass_gaussian)
+bos_res.set_filter(filter=bos.filtering.lowpass_gaussian,sigma=1)
 
 # Show results
 visualisation = bos.Visualizer(bos_res)
