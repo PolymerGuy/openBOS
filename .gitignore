@@ -10,6 +10,9 @@ __pycache__/
 .idea/
 Examples/images/*
 
+#VSCODE
+.vscode
+
 # Distribution / packaging
 .Python
 build/
