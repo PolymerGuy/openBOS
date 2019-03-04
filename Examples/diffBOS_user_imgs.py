@@ -29,5 +29,5 @@ bos_res.set_filter(filter=bos.filtering.lowpass_gaussian,sigma=1)
 
 # Show results
 visualisation = bos.Visualizer(bos_res)
-visualisation.show_frame(60)
+visualisation.show_frame(53)
 visualisation.save_frame(45)
