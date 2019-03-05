@@ -19,7 +19,10 @@ class ImageStack(object):
             self.filter = lambda img: img
 
     def set_filter(self, filter,sigma=20.):
-        self.filter = partial(filter,sigma=sigma)
+        if filter is None:
+            self.filter = lambda img: img
+        else:
+            self.filter = partial(filter,sigma=sigma)
 
     def __iter__(self):
         return self
