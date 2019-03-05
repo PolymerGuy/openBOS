@@ -3,6 +3,7 @@ import scipy.ndimage as nd
 from copy import copy
 from functools import partial
 import numpy as np
+import os
 
 # TODO: Implement this
 class ImageStack(object):
@@ -52,6 +53,8 @@ def imagestack_from_folder(path_folder, file_suffix=".tif", lazy=True, filter=No
 
 
 def imagestack_from_images(images, filter=None):
+    if not isinstance(images[0],np.ndarray) or type(images)!= list:
+        raise IOError("Only a list of numpy arrays is accepted as input")
     imgs = copy(images)
     image_reader = lambda frame: imgs[frame]
     return ImageStack(image_reader,len(images), filter)
